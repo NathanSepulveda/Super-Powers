@@ -1,6 +1,19 @@
-document.querySelector("#activate-flight").addEventListener("click", flightHandlerFunction)
-document.querySelector("#activate-mindreading").addEventListener("click", mindHandlerFunction)
-document.querySelector("#activate-xray").addEventListener("click", xRayHandlerFunction)
+function allPowerManipulator (yourSection) {
+    yourSection.classList.toggle("disabled")
+    yourSection.classList.toggle("enabled")
+}
+
+let combinedFunction = () => {
+    let powerID = event.target.id.split("-")[1]
+    console.log(powerID)
+    let correctButton = document.getElementById(powerID)
+    console.log(correctButton)
+    allPowerManipulator(correctButton)
+}
+
+document.querySelector("#activate-flight").addEventListener("click", combinedFunction)
+document.querySelector("#activate-mindreading").addEventListener("click", combinedFunction)
+document.querySelector("#activate-xray").addEventListener("click", combinedFunction)
 document.querySelector("#activate-all").addEventListener("click", toggleClasses)
 document.querySelector("#deactivate-all").addEventListener("click", unToggleClasses)
 
@@ -10,6 +23,8 @@ let mindButton = document.getElementById("activate-mindreading")
 let xRayButton = document.getElementById("activate-xray")
 let allButton = document.getElementById("activate-all")
 let delAllButton = document.getElementById("deactivate-all")
+
+
 
 function toggleClasses () {
 
@@ -34,44 +49,39 @@ function unToggleClasses () {
 }
 
 
-let flight = document.getElementById("flight")
+// let flight = document.getElementById("flight")
 
-function toggleClassFlight(newClass) {
-    flight.classList.toggle(newClass)
-    // console.log("!!!")
-}
-function flightHandlerFunction() {
-    toggleClassFlight("enabled")
-}
+// function toggleClassFlight(newClass) {
+//     flight.classList.toggle(newClass)
+//      console.log(flight)
+// }
+// function flightHandlerFunction() {
+//     toggleClassFlight("enabled")
+// }
 
 
-let mind = document.getElementById("mindreading")
+// let mind = document.getElementById("mindreading")
 
-function toggleClassMind(newClass) {
-    mind.classList.toggle(newClass)
+// function toggleClassMind(newClass) {
+//     mind.classList.toggle(newClass)
    
-}
-function mindHandlerFunction(newClass) {
-    toggleClassMind("enabled")
+// }
+// function mindHandlerFunction(newClass) {
+//     toggleClassMind("enabled")
    
-}
+// }
 
 
-let xRay = document.getElementById("xray")
+// let xRay = document.getElementById("xray")
 
-function toggleClassxRay(newClass) {
-    xRay.classList.toggle(newClass)
+// function toggleClassxRay(newClass) {
+//     xRay.classList.toggle(newClass)
  
-}
+// }
 
-function xRayHandlerFunction() {
-    toggleClassxRay("enabled")
+// function xRayHandlerFunction() {
+//     toggleClassxRay("enabled")
 
-}
+// }
 
 
-function delAllHandlerFunction() {
-    toggleClassxRay("disabled")
-    toggleClassFlight("disabled")
-    toggleClassMind("disabled")
-}
